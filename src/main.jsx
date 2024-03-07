@@ -9,7 +9,7 @@ import Home from "./components/Home/Home";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/flags-api-project",
     element: <Home />,
   },
 ]);
