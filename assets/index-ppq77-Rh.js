@@ -87,4 +87,4 @@ Error generating stack: `+o.message+`
                 
             `,children:"Where in the World?"})}),Ie.jsx("li",{className:`
                                         min-[1440px]:w-[19%] h-[40%] bg-stone-600
-            `})]})})})}function Tv(){return Ie.jsx(Ie.Fragment,{children:Ie.jsx("body",{className:"w-[100dvw] min-h-[100dvh] ",children:Ie.jsx(Lv,{})})})}const Nv=yv([{path:"/",element:Ie.jsx(Tv,{})}]);id(document.getElementById("root")).render(Ie.jsx(D.StrictMode,{children:Ie.jsx(Pv,{router:Nv})}));
+            `})]})})})}function Tv(){return Ie.jsx(Ie.Fragment,{children:Ie.jsx("body",{className:"w-[100dvw] min-h-[100dvh] ",children:Ie.jsx(Lv,{})})})}const Nv=yv([{path:"/flags-api-project",element:Ie.jsx(Tv,{})}]);id(document.getElementById("root")).render(Ie.jsx(D.StrictMode,{children:Ie.jsx(Pv,{router:Nv})}));
