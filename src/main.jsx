@@ -1,4 +1,6 @@
 import * as React from "react";
+// import { useState, useEffect, useContext }  from 'react'
+
 import * as ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
@@ -7,11 +9,18 @@ import {
 import "./index.css";
 import Home from "./components/Home/Home";
 import Detail from "./components/Detail/Detail";
+import App from "./App";
+
+export const testContext = React.createContext();
+
+
 
 const router = createBrowserRouter([
+
+
   {
     path: "/flags-api-project",
-    element: <Home />,
+    element: <App />,
   },
   {
     path: "/flags-api-project/detail/:id",
@@ -21,6 +30,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    
     <RouterProvider router={router} />
   </React.StrictMode>
 );

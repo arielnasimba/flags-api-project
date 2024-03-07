@@ -5,13 +5,13 @@ import MOON from "../../assets/images/moon.png"
 export default function Header() {
 
 
-  
+
   return (
 
     <>
-     <header className={` w-full h-[7rem]  shadow-[0px_3px_3px_0px_rgba(201,190,190,0.3)]
+     <header className={` w-full h-[5rem] fixed top-0 shadow-[0px_3px_3px_0px_rgba(201,190,190,0.3)]
      
-        box-shadow: 0px 7px 0px -4px rgba(219,202,202,1);
+                        bg-[rgba(255,255,255,1)]
 
 
                             
@@ -42,8 +42,8 @@ export default function Header() {
           
               <h1 className={`            
 
-                                          min-[1440px]:text-[2.5rem]  min-[1440px]:font-[900]
-                                          min-[1440px]:leading-10
+                                          min-[1440px]:text-[1.9rem]  min-[1440px]:font-[900]
+                                          min-[1440px]:leading-8
 
               `}>
 
@@ -56,14 +56,15 @@ export default function Header() {
 
             
             <li className={`
-                                        min-[1440px]:w-[19%] min-[1440px]:h-[40%] 
-                                        min-[1440px]:flex min-[1440px]:justify-end
+                                        min-[1440px]:w-[19%] min-[1440px]:h-[60%] 
+                                        min-[1440px]:flex min-[1440px]:justify-end 
+                                        
             `}>
 
               <button className={`  
 
                                               min-[1440px]:btn min-[1440px]:h-full min-[1440px]:w-[55%]
-                                              min-[1440px]: glass
+                                              min-[1440px]:glass  min-[1440px]:border-[0px]
               `}>
 
                 <img src={MOON} alt="" srcset=""
@@ -75,7 +76,7 @@ export default function Header() {
                 <span  className={` 
 
 
-                                  min-[1440px]:text-[1.3rem]  min-[1440px]:font-[600]
+                                  min-[1440px]:text-[1rem]  min-[1440px]:font-[600]
                 
                 `}
                 

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { FlagInfoContext } from '../Home/Home'
+import { FlagInfoContext } from '../../App';
 import { Link } from 'react-router-dom';
 
 export default function CardFlag() {
@@ -19,7 +19,7 @@ export default function CardFlag() {
                     
                     <Link
                     
-                        to={`/flags-api-project/detail/:id`}
+                        to={`/flags-api-project/detail/${id}`}
                     >
                     
                     
@@ -28,7 +28,7 @@ export default function CardFlag() {
                     <div className={` card_template  flex flex-col shadow-md rounded-3xl
     
                             
-                    min-[1440px]:w-[26.35rem] min-[1440px]:h-[30rem] min-[1440px]:
+                    min-[1440px]:w-[15.35rem] min-[1440px]:h-[22rem] min-[1440px]:
 
 
 `}>
@@ -83,7 +83,7 @@ export default function CardFlag() {
 
             <h3 className={`
             
-                            min-[1440px]:text-[1.5rem] min-[1440px]:font-[700] text-black
+                            min-[1440px]:text-[1.3rem] min-[1440px]:font-[700] text-black
             `}       
             >
 
@@ -108,7 +108,7 @@ export default function CardFlag() {
 
             <p className={`
             
-                            min-[1440px]:text-[1.1rem] min-[1440px]:font-[700]
+                            min-[1440px]:text-[0.8rem] min-[1440px]:font-[700]
             `}       
             >
 
@@ -122,7 +122,7 @@ export default function CardFlag() {
             </p>
             <p className={`
             
-                            min-[1440px]:text-[1.1rem] min-[1440px]:font-[700]
+                            min-[1440px]:text-[0.8rem] min-[1440px]:font-[700]
             `}       
             >
 
@@ -136,7 +136,7 @@ export default function CardFlag() {
             </p>
             <p className={`
             
-                            min-[1440px]:text-[1.1rem] min-[1440px]:font-[700]
+                            min-[1440px]:text-[0.8rem] min-[1440px]:font-[700]
             `}       
             >
 

@@ -2,33 +2,21 @@ import React, { useState, useEffect, useContext }  from 'react'
 import Header from '../Header/Header'
 import '../Home/Home.css'
 import CardFlag from '../CardFlag/CardFlag'
+import { Outlet } from 'react-router-dom'
 
-export const FlagInfoContext = React.createContext();
+// export const FlagInfoContext = React.createContext();
 
 export default function Home() {
 
   
 
-  const [flagsGallery, setFlagsGallery] = useState([]);
-    useEffect(() => {
-      fetch('https://restcountries.com/v3.1/all')
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          console.log(data);
-          setFlagsGallery(data);
-        });
-      }, []);
-
-   
   
   return (
 
     <>
 
         
-          <FlagInfoContext.Provider value={{flagsGallery}}>
+          {/* <FlagInfoContext.Provider value={{flagsGallery}}> */}
 
 
           
@@ -48,12 +36,13 @@ export default function Home() {
         
         >
 
-          
+
 
           <Header />
 
+         
 
-      <main className={`w-[88%]  
+      <main className={`w-[88%]  mt-[7rem]
 
                         min-[1440px]:min-h-[100dvh] min-[1440px]:bg-[rgba(250,250,250,0)]
                       min-[1440px]: min-[1440px]:self-center
@@ -134,7 +123,7 @@ export default function Home() {
 
             
         </body>
-        </FlagInfoContext.Provider>
+        {/* </FlagInfoContext.Provider> */}
     </>
   )
 }
