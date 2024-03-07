@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import MOON from "../../assets/images/moon.png"
 
 export default function Header() {
+
+
+  
   return (
 
     <>
@@ -33,13 +36,14 @@ export default function Header() {
           to={`/flags-api-project/`}
 
           className={`
-                                  min-[1440px]:w-[19%] min-[1440px]:h-[40%] 
+                                  min-[1440px]:w-[25%] min-[1440px]:h-[40%] 
                 `}
           >
           
               <h1 className={`            
 
-                                          min-[1440px]:text-[2.1rem]  min-[1440px]:font-[900]
+                                          min-[1440px]:text-[2.5rem]  min-[1440px]:font-[900]
+                                          min-[1440px]:leading-10
 
               `}>
 

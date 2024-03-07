@@ -6,11 +6,16 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import Home from "./components/Home/Home";
+import Detail from "./components/Detail/Detail";
 
 const router = createBrowserRouter([
   {
     path: "/flags-api-project",
     element: <Home />,
+  },
+  {
+    path: "/flags-api-project/detail/:id",
+    element: <Detail />,
   },
 ]);
 
