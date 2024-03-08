@@ -7,12 +7,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import Home from "./components/Home/Home";
+// import Home from "./components/Home/Home";
 import Detail from "./components/Detail/Detail";
 import App from "./App";
-
-export const testContext = React.createContext();
-
+import { ThemeProvider } from "./FlagContext";
 
 
 const router = createBrowserRouter([
@@ -30,7 +28,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    
+
+    <ThemeProvider>
+
     <RouterProvider router={router} />
+
+    </ThemeProvider>
+
   </React.StrictMode>
 );

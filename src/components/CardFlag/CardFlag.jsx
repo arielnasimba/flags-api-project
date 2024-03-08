@@ -1,19 +1,26 @@
 import React, { useContext } from 'react'
-import { FlagInfoContext } from '../../App';
+// import { FlagInfoContext } from '../../App';
 import { Link } from 'react-router-dom';
+import {ThemeContext } from '../../FlagContext';
 
 export default function CardFlag() {
 
-    const {flagsGallery} = useContext(FlagInfoContext);
+    // const {flagsGallery} = useContext(FlagInfoContext);
+    const { theme, flagsGallery2} = useContext(ThemeContext);
+    // console.log(theme);
 
     // console.log(flagsGallery[0].name.common);
+
+
+    // console.log(ThemeContext);
+
 
   return (
     <>
 
         {
 
-            flagsGallery.map (( flag , id ) =>{
+            flagsGallery2.map (( flag , id ) =>{
 
                 return (
                     
@@ -28,7 +35,7 @@ export default function CardFlag() {
                     <div className={` card_template  flex flex-col shadow-md rounded-3xl
     
                             
-                    min-[1440px]:w-[15.35rem] min-[1440px]:h-[22rem] min-[1440px]:
+                    min-[1440px]:w-[16.85rem] min-[1440px]:h-[22rem] min-[1440px]:
 
 
 `}>

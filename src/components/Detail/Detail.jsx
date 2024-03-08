@@ -2,48 +2,22 @@ import React, { useContext, useState, useEffect } from 'react'
 import Header from '../Header/Header'
 import ARROW from "../../assets/images/arrow-left.png"
 import { Outlet, Link , useParams} from 'react-router-dom';
-import { FlagInfoContext } from '../../App';
+// import { FlagInfoContext } from '../../App';
+import {ThemeContext } from '../../FlagContext';
 
 export default function Detail() {
 
+  const { theme, flagsGallery2} = useContext(ThemeContext);
+  // console.log(theme);
+console.log(flagsGallery2);
     // const {flagsGallery} = useContext(FlagInfoContext);
 
   const { id } = useParams();
 
   console.log(id);
 
-
-
-//   const flag = flagsGallery[id];
-
-
-  const [flagsGalleryDetail, setFlagsGalleryDetail] = useState([]);
-  const [flag_src, setFlag_src] = useState(null);
-
-  const flagId = flagsGalleryDetail[id];
-
-
-  useEffect(() => {
-    fetch('https://restcountries.com/v3.1/all')
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        // console.log(data);
-        setFlagsGalleryDetail(data);
-
-
-        setFlag_src(flagId.flags.png);
-
-      });
-
-
-
-
-    }, []);
-
-    // console.log(flagId.flags.png);
-
+  const flagId = flagsGallery2[id];
+  console.log(flagId.region);
 
 
   return (
@@ -145,7 +119,7 @@ export default function Detail() {
         
                               min-[1440px]:w-full min-[1440px]: min-[1440px]:h-[50%]
                               min-[1440px]:  min-[1440px]:flex min-[1440px]:justify-between
-                              min-[1440px]:  min-[1440px]: min-[1440px]:bg-yellow-200
+                              min-[1440px]:  min-[1440px]: min-[1440px]:
       `}>
 
 
@@ -154,7 +128,7 @@ export default function Detail() {
 
 {/* <h3>{flag.name.common}</h3> */}
 
-            <div className={`left bg-slate-700 flex
+            <div className={`left  flex
         
                             min-[1440px]:w-[50%] min-[1440px]:h-full
         
@@ -162,13 +136,13 @@ export default function Detail() {
             
             `}>
             
-            <img src={flag_src}  alt="" srcset="" 
-                    className={``}
+            <img src={flagId.flags.png}  alt="" srcset="" 
+                    className={`rounded-3xl`}
             />
         
         
             </div>
-            <div className={`right bg-slate-200
+            <div className={`right 
         
                             min-[1440px]:w-[42%] min-[1440px]:h-full
                             min-[1440px]:flex min-[1440px]:justify-center 
@@ -182,7 +156,7 @@ export default function Detail() {
             `}>
 
 
-                <div className={`text_inside bg-orange-400 
+                <div className={`text_inside  
                 
                                     min-[1440px]:w-full min-[1440px]:flex
                                     min-[1440px]:h-[78%] min-[1440px]:flex-col
@@ -190,7 +164,7 @@ export default function Detail() {
                 `}>
 
 
-                      <div className={`title_area bg-stone-600
+                      <div className={`title_area 
 
                                   min-[1440px]:w-[50%] min-[1440px]:h-[12%]
                       `}>
@@ -202,14 +176,163 @@ export default function Detail() {
                         
                         `}>
 
-                            {/* {flagId.name} */}
+                            {flagId.name.common}
                         </h3>
 
                       </div>
                       <div className={`desc_area bg-stone-600
 
                                   min-[1440px]:w-full min-[1440px]:h-[55%]
+                                  min-[1440px]:grid min-[1440px]:grid-cols-2
+
                       `}>
+
+                        <div className={`
+                        
+
+                                        min-[1440px]:col-start-1 min-[1440px]:bg-orange-600
+
+                                        min-[1440px]:flex min-[1440px]:flex-col  min-[1440px]:justify-center 
+                                        min-[1440px]:gap-1
+                        
+                        `}>
+
+
+
+                        
+                            <p className={`
+                                        
+                                        min-[1440px]:text-[0.75rem] min-[1440px]:font-[700]
+                            `}       
+                            >
+    
+                                Native Name :  &nbsp;
+                                <span className={`
+                                                        min-[1440px]:font-[600]
+                                `}>
+                                
+                                {/* {flagId.name.nativeName} */}
+                                </span>
+                            </p>
+                            <p className={`
+                                        
+                                        min-[1440px]:text-[0.75rem] min-[1440px]:font-[700]
+                            `}       
+                            >
+    
+                                Population :  &nbsp;
+                                <span className={`
+                                                        min-[1440px]:font-[600]
+                                `}>
+                                
+                                    {/* {flag.population} */}
+                                </span>
+                            </p>
+                            <p className={`
+                                        
+                                        min-[1440px]:text-[0.75rem] min-[1440px]:font-[700]
+                            `}       
+                            >
+    
+                                Region :  &nbsp;
+                                <span className={`
+                                                        min-[1440px]:font-[600]
+                                `}>
+                                
+                                    {flagId.region}
+                                </span>
+                            </p>
+                            <p className={`
+                                        
+                                        min-[1440px]:text-[0.75rem] min-[1440px]:font-[700]
+                            `}       
+                            >
+    
+                                Sub Region :  &nbsp;
+                                <span className={`
+                                                        min-[1440px]:font-[600]
+                                `}>
+                                
+                                    {/* {flag.population} */}
+                                </span>
+                            </p>
+                            <p className={`
+                                        
+                                        min-[1440px]:text-[0.75rem] min-[1440px]:font-[700]
+                            `}       
+                            >
+    
+                                Capital :  &nbsp;
+                                <span className={`
+                                                        min-[1440px]:font-[600]
+                                `}>
+                                
+                                    {/* {flag.population} */}
+                                </span>
+                            </p>
+
+                        </div>
+                        <div className={`
+                        
+
+                                        min-[1440px]:col-start-2 min-[1440px]:bg-orange-300
+                                        min-[1440px]:flex min-[1440px]:flex-col  min-[1440px]:justify-start 
+                                        min-[1440px]:gap-1 min-[1440px]:pt-7
+                        
+                        `}>
+
+                          <p className={`
+                                        
+                                        min-[1440px]:text-[0.75rem] min-[1440px]:font-[700]
+                            `}       
+                            >
+    
+                                Top Level Domain  :  &nbsp;
+                                <span className={`
+                                                        min-[1440px]:font-[600]
+                                `}>
+                                
+                                    {/* {flag.population} */}
+                                </span>
+                            </p>
+                            <p className={`
+                                        
+                                        min-[1440px]:text-[0.75rem] min-[1440px]:font-[700]
+                            `}       
+                            >
+    
+                                Currencies :  &nbsp;
+                                <span className={`
+                                                        min-[1440px]:font-[600]
+                                `}>
+                                
+                                    {/* {flag.population} */}
+                                </span>
+                            </p>
+ 
+                            <p className={`
+                                        
+                                        min-[1440px]:text-[0.75rem] min-[1440px]:font-[700]
+                            `}       
+                            >
+    
+                                Languages :  &nbsp;
+                                <span className={`
+                                                        min-[1440px]:font-[600]
+                                `}>
+                                
+                                    {/* {flag.population} */}
+                                </span>
+                            </p>
+ 
+
+
+
+
+                        </div>
+
+
+
 
 
 
@@ -265,7 +388,6 @@ export default function Detail() {
 
             
         </body>
-        {/* </FlagInfoContext.Provider> */}
     </>
   )
 }
