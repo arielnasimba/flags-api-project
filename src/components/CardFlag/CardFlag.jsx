@@ -6,7 +6,7 @@ import {ThemeContext } from '../../FlagContext';
 export default function CardFlag() {
 
     // const {flagsGallery} = useContext(FlagInfoContext);
-    const { theme, flagsGallery2} = useContext(ThemeContext);
+    const { theme, flagsGallery2, themeElements} = useContext(ThemeContext);
     // console.log(theme);
 
     // console.log(flagsGallery[0].name.common);
@@ -32,13 +32,15 @@ export default function CardFlag() {
                     
 
 
-                    <div className={` card_template  flex flex-col shadow-md rounded-3xl
+                    <div key={id} className={` card_template hover:scale-110 hover:shadow-2xl  flex flex-col shadow-md rounded-3xl
     
                             
                     min-[1440px]:w-[16.85rem] min-[1440px]:h-[22rem] min-[1440px]:
 
 
-`}>
+`}
+                    style={themeElements}
+>
 
 {/* image area start  */}
 
@@ -90,8 +92,10 @@ export default function CardFlag() {
 
             <h3 className={`
             
-                            min-[1440px]:text-[1.3rem] min-[1440px]:font-[700] text-black
-            `}       
+                            min-[1440px]:text-[1.3rem] min-[1440px]:font-[700] 
+            `}      
+            
+            
             >
 
                 {flag.name.common}

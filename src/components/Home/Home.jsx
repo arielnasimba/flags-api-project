@@ -3,60 +3,15 @@ import Header from '../Header/Header'
 import '../Home/Home.css'
 import CardFlag from '../CardFlag/CardFlag'
 import LOUPE from "../../assets/images/loupe.png"
-import { Outlet } from 'react-router-dom'
-// import { FlagInfoContext } from '../../App'
 import { ThemeContext } from '../../FlagContext'
 
 // export const FlagInfoContext = React.createContext();
 
 export default function Home() {
 
-  // const { theme} = useContext(ThemeContext);
-
-  // const { flagsGallery, setFlagsGallery} = useContext( FlagInfoContext);
+  const { themeUser, themeInput, themeElements, themeText,flagsGallery2,setFlagsGallery2,} = useContext(ThemeContext);
 
   const [searchTerm, setSearchTerm] = useState('');
-  // console.log(flagsGallery);
-
-  const [originalFlags, setOriginalFlags] = useState([]);
-
-  // useEffect(() => {
-  //   setOriginalFlags(flagsGallery);
-  // }, [flagsGallery]);
-
-  // const handleSearch = (e) => {
-  //   setSearchTerm(e.target.value);
-  // };  
-
-  // useEffect(() => {
-  //   if (searchTerm.trim() !== '') {
-  //     const filteredFlags = originalFlags.filter(flag =>
-  //       flag.name.common.toLowerCase().includes(searchTerm.toLowerCase())
-  //     );
-  //     setFlagsGallery(filteredFlags);
-  //   } else {
-  //     setFlagsGallery(originalFlags);
-  //   }
-  // }, [searchTerm]);
-
-
-
-  // console.log(listFlags);
-//   const handleSearch = (e) => {
-//     setSearchTerm(e.target.value);
-// };  
-
-
-// useEffect(() => {
-
-//   let filteredTasks = flagsGallery.filter(task =>
-//       task.name.common.toLowerCase().includes(searchTerm.toLowerCase())
-//   );
-//   setFlagsGallery(filteredTasks);
-// }, [searchTerm]);
-
-
-// console.log(flagsGallery);
 
 
 
@@ -66,6 +21,23 @@ const handleFlag = (id) => {
           task.id == id ? { ...task, status: !task.status } : task
       )
   );
+};
+
+const [originalFlags, setOriginalFlags] = useState(flagsGallery2);
+
+useEffect(() => {
+  if (searchTerm.trim() !== '') {
+    let filteredTasks = originalFlags.filter(flag =>
+      flag.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFlagsGallery2(filteredTasks);
+  } else {
+    setFlagsGallery2(originalFlags);
+  }
+}, [searchTerm]);
+
+const handleSearch = (e) => {
+  setSearchTerm(e.target.value);
 };
 
   
@@ -86,9 +58,9 @@ const handleFlag = (id) => {
         
         
         
-        `}
+        `} 
 
-           
+            style={themeUser}
         
         
         
@@ -150,10 +122,11 @@ const handleFlag = (id) => {
 
                   name="search"
                   id="search"
-                  // value={searchTerm}
-                  // onChange={handleSearch}
-                  placeholder="Search flag..."
-        
+                  value={searchTerm}
+                  onChange={handleSearch}
+                  placeholder="Search for a country..."
+
+                  style={themeElements}
 
                   />
 
@@ -164,6 +137,8 @@ const handleFlag = (id) => {
 
                     <img src={LOUPE} alt="" srcset="" 
                         className={`w-[70%]` }
+
+                        style={themeText}
                     />
                   </span>
 

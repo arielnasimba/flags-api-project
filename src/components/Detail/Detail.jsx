@@ -7,17 +7,47 @@ import {ThemeContext } from '../../FlagContext';
 
 export default function Detail() {
 
-  const { theme, flagsGallery2} = useContext(ThemeContext);
+  const { theme, flagsGallery2, themeUser, themeElements, themeBtn, themeText} = useContext(ThemeContext);
   // console.log(theme);
 console.log(flagsGallery2);
     // const {flagsGallery} = useContext(FlagInfoContext);
 
-  const { id } = useParams();
+  const { id = 0} = useParams();
 
   console.log(id);
 
   const flagId = flagsGallery2[id];
-  console.log(flagId.region);
+  // console.log(flagId.name.nativeName );
+  // console.log(flagId.borders);
+
+
+// console.log( (Object.entries(Object.entries(flagId.name.nativeName).at(-1)).at(-1))[(Object.entries(Object.entries(flagId.name.nativeName).at(-1)).at(-1)).length-1].common );
+
+
+  // flagId.borders.map((border) => {
+
+  //   console.log(border);
+  // })
+
+  // Array.from(flagId.languages).map((lang) =>{
+  //   console.log(lang.languages);
+
+  // })
+
+  // Object.entries(flagId.languages).map( ( [key, val] = entry) =>{
+
+  //   return (
+
+      
+  //     <span >
+  //       &nbsp;&nbsp;
+  //       {val}
+  //     </span>
+  //   )
+  // })
+
+
+
 
 
   return (
@@ -39,7 +69,8 @@ console.log(flagsGallery2);
         
         `}
 
-           
+        style={themeUser}
+
         
         
         
@@ -70,10 +101,12 @@ console.log(flagsGallery2);
 
             <Link
 
+            
+
                 to={`/flags-api-project/`}
             >
 
-            <button type="button" className={`btn bg-white
+            <button type="button" className={`btn bg-transparent
             
             
                             w-full h-full
@@ -82,7 +115,10 @@ console.log(flagsGallery2);
                             min-[1440px]:flex min-[1440px]:justify-center
                             min-[1440px]:items-center min-[1440px]:
                             
-            `}>
+            `}
+            
+            
+            >
 
                 <span 
                     className={`
@@ -103,7 +139,10 @@ console.log(flagsGallery2);
 
                 </span>
 
-                <p>Back</p>
+                <p 
+                
+                style={themeText}
+                >Back</p>
             </button>
             
             
@@ -120,7 +159,10 @@ console.log(flagsGallery2);
                               min-[1440px]:w-full min-[1440px]: min-[1440px]:h-[50%]
                               min-[1440px]:  min-[1440px]:flex min-[1440px]:justify-between
                               min-[1440px]:  min-[1440px]: min-[1440px]:
-      `}>
+      `}
+
+
+      >
 
 
 
@@ -180,7 +222,7 @@ console.log(flagsGallery2);
                         </h3>
 
                       </div>
-                      <div className={`desc_area bg-stone-600
+                      <div className={`desc_area 
 
                                   min-[1440px]:w-full min-[1440px]:h-[55%]
                                   min-[1440px]:grid min-[1440px]:grid-cols-2
@@ -190,7 +232,7 @@ console.log(flagsGallery2);
                         <div className={`
                         
 
-                                        min-[1440px]:col-start-1 min-[1440px]:bg-orange-600
+                                        min-[1440px]:col-start-1 min-[1440px]:
 
                                         min-[1440px]:flex min-[1440px]:flex-col  min-[1440px]:justify-center 
                                         min-[1440px]:gap-1
@@ -211,7 +253,10 @@ console.log(flagsGallery2);
                                                         min-[1440px]:font-[600]
                                 `}>
                                 
-                                {/* {flagId.name.nativeName} */}
+                                {
+
+                                      (Object.entries(Object.entries(flagId.name.nativeName).at(-1)).at(-1))[(Object.entries(Object.entries(flagId.name.nativeName).at(-1)).at(-1)).length-1].common
+                                }
                                 </span>
                             </p>
                             <p className={`
@@ -225,7 +270,7 @@ console.log(flagsGallery2);
                                                         min-[1440px]:font-[600]
                                 `}>
                                 
-                                    {/* {flag.population} */}
+                                    {flagId.population}
                                 </span>
                             </p>
                             <p className={`
@@ -253,7 +298,7 @@ console.log(flagsGallery2);
                                                         min-[1440px]:font-[600]
                                 `}>
                                 
-                                    {/* {flag.population} */}
+                                    {flagId.subregion}
                                 </span>
                             </p>
                             <p className={`
@@ -267,7 +312,7 @@ console.log(flagsGallery2);
                                                         min-[1440px]:font-[600]
                                 `}>
                                 
-                                    {/* {flag.population} */}
+                                {flagId.capital}
                                 </span>
                             </p>
 
@@ -275,7 +320,7 @@ console.log(flagsGallery2);
                         <div className={`
                         
 
-                                        min-[1440px]:col-start-2 min-[1440px]:bg-orange-300
+                                        min-[1440px]:col-start-2 min-[1440px]:
                                         min-[1440px]:flex min-[1440px]:flex-col  min-[1440px]:justify-start 
                                         min-[1440px]:gap-1 min-[1440px]:pt-7
                         
@@ -292,7 +337,7 @@ console.log(flagsGallery2);
                                                         min-[1440px]:font-[600]
                                 `}>
                                 
-                                    {/* {flag.population} */}
+                                {flagId.tld }
                                 </span>
                             </p>
                             <p className={`
@@ -306,22 +351,49 @@ console.log(flagsGallery2);
                                                         min-[1440px]:font-[600]
                                 `}>
                                 
-                                    {/* {flag.population} */}
+                                {
+
+                                  
+                                  Object.entries(flagId.currencies).map( ( [key, val] = entry) => {
+                                    
+                                    return (
+                                      val.name
+
+                                    )
+                                  })
+                                }
                                 </span>
                             </p>
  
                             <p className={`
                                         
                                         min-[1440px]:text-[0.75rem] min-[1440px]:font-[700]
+                                        min-[1440px]:flex min-[1440px]:
                             `}       
                             >
     
-                                Languages :  &nbsp;
+                                Languages :  
                                 <span className={`
-                                                        min-[1440px]:font-[600]
+                                                        min-[1440px]:font-[600] min-[1440px]:
+                                                        
                                 `}>
                                 
                                     {/* {flag.population} */}
+
+                                    {
+                                        Object.entries(flagId.languages).map( ( [key, val] = entry) =>{
+
+                                          return (
+
+                                            
+                                            <span >
+                                              &nbsp;&nbsp;
+                                              {val}
+                                            </span>
+                                          )
+                                        })
+
+                                    }
                                 </span>
                             </p>
  
@@ -340,9 +412,9 @@ console.log(flagsGallery2);
                       </div>
 
 
-                      <div className={`near_countries_area bg-stone-600
+                      <div className={`near_countries_area 
 
-                                  min-[1440px]:w-full min-[1440px]:h-[10%]
+                                  min-[1440px]:w-full min-[1440px]:h-[10%]  min-[1440px]:flex
                       `}>
 
                         <span className={`
@@ -353,10 +425,60 @@ console.log(flagsGallery2);
                             Border Countries : &ensp;
                         </span>
 
-                        <div className={` map_near_countries
+                        <div className={` map_near_countries 
+                                           min-[1440px]:flex  min-[1440px]:gap-2
+
+                                               
                         
 
                         `}>
+
+                          {
+
+                                  flagId.borders.map((border, id) => {
+                                     let hello = 'd';
+                                    return (
+
+                                      <Link
+                                      
+                                      to={`/flags-api-project/detail/${id}`}
+
+                                      >
+                                      
+                                      
+
+                                      <button type="button"
+                                      className={` 
+                                      
+                                      min-[1440px]: min-[1440px]:h-[1.5rem]
+                                      min-[1440px]:w-[4rem]  min-[1440px]:rounded-md
+                                      min-[1440px]:flex min-[1440px]:justify-center 
+                                      min-[1440px]:items-center min-[1440px]:border
+                                      min-[1440px]:active:scale-[90%]  min-[1440px]:active:blur-[0.03rem]
+                          
+                          `}
+                                      
+                                      >
+                                 <p className={`
+                                      
+                                      min-[1440px]:text-[0.8rem] min-[1440px]:
+                                      min-[1440px]:  min-[1440px]:leading-4
+                          
+                                            `}>
+                                        {border}
+
+                                        </p>
+
+                                      </button>
+
+                                      </Link>
+
+
+
+
+                                    )
+                                  })
+                          }
 
 
 

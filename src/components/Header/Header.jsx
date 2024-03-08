@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import MOON from "../../assets/images/moon.png"
+import {ThemeContext } from '../../FlagContext';
+
 
 export default function Header() {
-
+  const { theme, themeElements, themeUser, themeText} = useContext(ThemeContext);
 
 
   return (
@@ -19,7 +21,7 @@ export default function Header() {
                                     min-[1440px]:  min-[1440px]:
      
      `}
-     
+     style={themeElements}
      >
 
         <ul className={` 
@@ -45,7 +47,10 @@ export default function Header() {
                                           min-[1440px]:text-[1.9rem]  min-[1440px]:font-[900]
                                           min-[1440px]:leading-8
 
-              `}>
+              `}
+              
+              style={themeText}
+              >
 
                   Where in the world?
 
@@ -64,8 +69,11 @@ export default function Header() {
               <button className={`  
 
                                               min-[1440px]:btn min-[1440px]:h-full min-[1440px]:w-[55%]
-                                              min-[1440px]:glass  min-[1440px]:border-[0px]
-              `}>
+                                              min-[1440px]:  min-[1440px]:border-[0px]
+              `}
+              
+              style={themeUser}
+              >
 
                 <img src={MOON} alt="" srcset=""
                     className={`
