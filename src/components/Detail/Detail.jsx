@@ -7,10 +7,12 @@ import {ThemeContext } from '../../FlagContext';
 
 export default function Detail() {
 
-  const { theme, flagsGallery2, themeUser, themeElements, themeBtn, themeText} = useContext(ThemeContext);
+  const { theme, flagsGallery2, themeUser, themeElements, themeBtn, themeText, darkMode} = useContext(ThemeContext);
   // console.log(theme);
-console.log(flagsGallery2);
+// console.log(flagsGallery2);
     // const {flagsGallery} = useContext(FlagInfoContext);
+
+    console.log(darkMode);
 
   const { id = 0} = useParams();
 
@@ -47,6 +49,93 @@ console.log(flagsGallery2);
   // })
 
 
+  
+  useEffect(() => {
+
+    // darkMode ? (console.log(`dark mode on`), 
+
+    //   document.querySelector("header").style = `none`
+    
+    
+    
+    
+    
+    
+    
+    
+    // ):(console.log(`dark mode off`), 
+    //   document.querySelector("header").style = themeElements);
+
+    if (darkMode) {
+
+      document.querySelector("body").style.backgroundColor = "hsl(209, 23%, 22%)";
+
+
+      // document.querySelector("header").style.backgroundColor = "hsl(209, 23%, 27%)";
+      document.querySelector("p").style.color = "white";
+      document.querySelector("h3").style.color = "white";
+
+      // document.querySelector("button").style.backgroundColor = "hsl(209, 23%, 27%)";
+      // document.querySelector("button").style.color = "hsl(0, 0%, 100%)";
+      // document.querySelector("img").style.backgroundClip = "hsl(0, 0%, 100%)";
+
+
+      // document.querySelectorAll(" span").forEach( ( el ) => (
+      //   // el.style.backgroundColor ="transparent",
+      //   // el.style.color = `hsl(0, 0%, 100%)`
+        
+      //   ) )
+
+
+
+      // document.querySelectorAll("#cardFlag").style.backgroundColor= "hsl(209, 23%, 22%)";
+
+
+      console.log(`dark mode on`);
+    } else{
+
+      document.querySelector("body").style.backgroundColor = "hsl(0, 0%, 95%)";
+
+      document.querySelector("p").style.color = "unset";
+      document.querySelector("h3").style.color = "unset";
+
+
+
+
+      // document.querySelector("header").style = `none`
+      // document.querySelector("h1").style.color = "black";
+
+      // document.querySelector("button").style.backgroundColor = "";
+      // document.querySelector("button").style.color = "";
+      // document.querySelectorAll("#cardFlag").forEach( ( el ) => console.log(el) )
+
+      // document.querySelectorAll("#cardFlag").forEach( ( el ) => (
+      //   el.style.backgroundColor ="hsl(0, 0%, 95%)",
+      //   el.style.color = `unset`
+      //   ) )
+
+
+      // document.querySelector("#cardFlag").style.backgroundColor= "hsl(0, 0%, 100%)";
+
+
+
+
+
+      console.log(`dark mode off`);
+
+    }
+
+    // backgroundColor:  "hsl(207, 26%, 17%)",
+    //     color: "hsl(0, 0%, 100%)",
+    
+
+
+    return () => {
+    }
+  }, [darkMode])
+  
+
+
 
 
 
@@ -69,7 +158,7 @@ console.log(flagsGallery2);
         
         `}
 
-        style={themeUser}
+        // style={themeUser}
 
         
         
@@ -141,7 +230,7 @@ console.log(flagsGallery2);
 
                 <p 
                 
-                style={themeText}
+                // style={themeText}
                 >Back</p>
             </button>
             

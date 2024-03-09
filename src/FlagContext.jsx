@@ -7,6 +7,19 @@ const ThemeProvider = ( { children }) =>{
 
     const [ theme, setTheme] = useState("light");
 
+    const [darkMode, setDarkMode] = useState(false);
+    const toggleTheme = () => {
+        setDarkMode((prevDarkMode) => !prevDarkMode);
+      };
+
+    // console.log(darkMode);
+
+
+    
+
+    //* dark mode elements start */
+
+
     const [themeUser, setThemeUser] = useState({
         backgroundColor:  "hsl(207, 26%, 17%)",
         color: "hsl(0, 0%, 100%)",
@@ -34,6 +47,19 @@ const ThemeProvider = ( { children }) =>{
       });
 
 
+    //* dark mode elements end */
+
+    
+
+    //* light mode elements start */
+
+
+
+
+    //* light mode elements end */
+
+
+
     const [flagsGallery2, setFlagsGallery2] = useState([]);
     useEffect(() => {
       fetch('https://restcountries.com/v3.1/all')
@@ -50,7 +76,14 @@ const ThemeProvider = ( { children }) =>{
     
     return (
         
-        <ThemeContext.Provider value={{theme, flagsGallery2,setFlagsGallery2, themeUser, setThemeUser, themeElements,setThemeElements, themeInput, setThemeInput, themeText, setThemeText, themebtn, setThemebtn}} >
+        <ThemeContext.Provider value={{theme, flagsGallery2,setFlagsGallery2, 
+                                                themeUser, setThemeUser, 
+                                                    themeElements,setThemeElements, 
+                                                        themeInput, setThemeInput, 
+                                                            themeText, setThemeText, 
+                                                                themebtn, setThemebtn,
+                                                                    darkMode, setDarkMode, toggleTheme
+                                        }} >
 
             {children}
 

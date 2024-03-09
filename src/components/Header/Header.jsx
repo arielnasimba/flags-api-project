@@ -1,11 +1,95 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import MOON from "../../assets/images/moon.png"
 import {ThemeContext } from '../../FlagContext';
 
 
 export default function Header() {
-  const { theme, themeElements, themeUser, themeText} = useContext(ThemeContext);
+  const { theme, themeElements, themeUser, themeText, darkMode, setDarkMode, setThemeElements } = useContext(ThemeContext);
+
+  const toggleTheme = () => {
+    setDarkMode((prevDarkMode) => !prevDarkMode);
+  };
+
+
+  useEffect(() => {
+
+    // darkMode ? (console.log(`dark mode on`), 
+
+    //   document.querySelector("header").style = `none`
+    
+    
+    
+    
+    
+    
+    
+    
+    // ):(console.log(`dark mode off`), 
+    //   document.querySelector("header").style = themeElements);
+
+    if (darkMode) {
+
+      document.querySelector("body").style.backgroundColor = "hsl(209, 23%, 22%)";
+
+
+      document.querySelector("header").style.backgroundColor = "hsl(209, 23%, 27%)";
+      document.querySelector("h1").style.color = "white";
+
+      document.querySelector("button").style.backgroundColor = "hsl(209, 23%, 27%)";
+      document.querySelector("button").style.color = "hsl(0, 0%, 100%)";
+      document.querySelector("img").style.backgroundClip = "hsl(0, 0%, 100%)";
+
+
+      document.querySelectorAll("#cardFlag").forEach( ( el ) => (
+        el.style.backgroundColor ="hsl(209, 23%, 27%)",
+        el.style.color = `hsl(0, 0%, 100%)`
+        
+        ) )
+
+
+
+      // document.querySelectorAll("#cardFlag").style.backgroundColor= "hsl(209, 23%, 22%)";
+
+
+      // console.log(`dark mode on`);
+    } else{
+
+      document.querySelector("body").style.backgroundColor = "hsl(0, 0%, 95%)";
+
+
+      document.querySelector("header").style = `none`
+      document.querySelector("h1").style.color = "black";
+
+      document.querySelector("button").style.backgroundColor = "";
+      document.querySelector("button").style.color = "";
+      // document.querySelectorAll("#cardFlag").forEach( ( el ) => console.log(el) )
+
+      document.querySelectorAll("#cardFlag").forEach( ( el ) => (
+        el.style.backgroundColor ="hsl(0, 0%, 95%)",
+        el.style.color = `unset`
+        ) )
+
+
+      // document.querySelector("#cardFlag").style.backgroundColor= "hsl(0, 0%, 100%)";
+
+
+
+
+
+      // console.log(`dark mode off`);
+
+    }
+
+    // backgroundColor:  "hsl(207, 26%, 17%)",
+    //     color: "hsl(0, 0%, 100%)",
+    
+
+
+    return () => {
+    }
+  }, [darkMode])
+  
 
 
   return (
@@ -21,7 +105,7 @@ export default function Header() {
                                     min-[1440px]:  min-[1440px]:
      
      `}
-     style={themeElements}
+    //  style={themeElements}
      >
 
         <ul className={` 
@@ -49,7 +133,6 @@ export default function Header() {
 
               `}
               
-              style={themeText}
               >
 
                   Where in the world?
@@ -72,7 +155,10 @@ export default function Header() {
                                               min-[1440px]:  min-[1440px]:border-[0px]
               `}
               
-              style={themeUser}
+              // style={themeUser}
+
+              onClick={toggleTheme}
+
               >
 
                 <img src={MOON} alt="" srcset=""

@@ -6,40 +6,50 @@ import {ThemeContext } from '../../FlagContext';
 export default function CardFlag() {
 
     // const {flagsGallery} = useContext(FlagInfoContext);
-    const { theme, flagsGallery2, themeElements} = useContext(ThemeContext);
-    // console.log(theme);
+    const { theme, flagsGallery2, themeElements, darkMode} = useContext(ThemeContext);
+    // console.log(darkMode);
 
     // console.log(flagsGallery[0].name.common);
 
 
     // console.log(ThemeContext);
+    // console.log(darkMode);
+    // console.log(document.querySelector("#cardFlag"));
 
+    // document.querySelectorAll("#cardFlag").forEach( ( el ) => console.log(el) )
+        // console.log(el)
+
+
+    // document.querySelector("#cardFlag").style.backgroundColor= "hsl(209, 23%, 22%)";
+
+    
 
   return (
     <>
 
         {
 
-            flagsGallery2.map (( flag , id ) =>{
+            flagsGallery2.map (( flag , index ) =>{
+                const originalIndex = index;
 
                 return (
                     
                     <Link
                     
-                        to={`/flags-api-project/detail/${id}`}
+                        to={`/flags-api-project/detail/${originalIndex}`}
                     >
                     
                     
 
 
-                    <div key={id} className={` card_template hover:scale-110 hover:shadow-2xl  flex flex-col shadow-md rounded-3xl
+                    <div key={originalIndex} id='cardFlag' className={` card_template hover:scale-110 hover:shadow-2xl  flex flex-col shadow-md rounded-3xl
     
                             
                     min-[1440px]:w-[16.85rem] min-[1440px]:h-[22rem] min-[1440px]:
 
 
 `}
-                    style={themeElements}
+                    // style={themeElements}
 >
 
 {/* image area start  */}

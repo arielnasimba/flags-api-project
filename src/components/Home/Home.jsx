@@ -3,17 +3,18 @@ import Header from '../Header/Header'
 import '../Home/Home.css'
 import CardFlag from '../CardFlag/CardFlag'
 import LOUPE from "../../assets/images/loupe.png"
+import { Outlet } from 'react-router-dom'
+// import { FlagInfoContext } from '../../App'
 import { ThemeContext } from '../../FlagContext'
 
 // export const FlagInfoContext = React.createContext();
 
 export default function Home() {
 
-  const { themeUser, themeInput, themeElements, themeText,flagsGallery2,setFlagsGallery2,} = useContext(ThemeContext);
+  const { themeUser, themeInput, themeElements, themeText,flagsGallery2,setFlagsGallery2, darkMode} = useContext(ThemeContext);
+console.log(darkMode);
 
   const [searchTerm, setSearchTerm] = useState('');
-
-
 
 const handleFlag = (id) => {
   setTask(prevTasks =>
@@ -38,6 +39,10 @@ useEffect(() => {
 
 const handleSearch = (e) => {
   setSearchTerm(e.target.value);
+
+
+
+  
 };
 
   
@@ -60,7 +65,7 @@ const handleSearch = (e) => {
         
         `} 
 
-            style={themeUser}
+            // style={themeUser}
         
         
         
@@ -150,6 +155,7 @@ const handleSearch = (e) => {
                                 min-[1440px]:w-[19%] min-[1440px]:h-[45%] min-[1440px]:bg-red-400
                                 min-[1440px]:flex min-[1440px]:justify-end 
             `}>
+              
             
 
 
