@@ -3,6 +3,7 @@ import Header from '../Header/Header'
 import '../Home/Home.css'
 import CardFlag from '../CardFlag/CardFlag'
 import LOUPE from "../../assets/images/loupe.png"
+import DOWNARROW from "../../assets/images/arrows-down.png"
 import { Outlet } from 'react-router-dom'
 // import { FlagInfoContext } from '../../App'
 import { ThemeContext } from '../../FlagContext'
@@ -12,7 +13,7 @@ import { ThemeContext } from '../../FlagContext'
 export default function Home() {
 
   const { themeUser, themeInput, themeElements, themeText,flagsGallery2,setFlagsGallery2, darkMode} = useContext(ThemeContext);
-console.log(darkMode);
+// console.log(darkMode);
 
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -26,6 +27,10 @@ const handleFlag = (id) => {
 
 const [originalFlags, setOriginalFlags] = useState(flagsGallery2);
 
+// console.log(document.querySelector('body').querySelector("main").querySelector('input'));
+
+
+
 useEffect(() => {
   if (searchTerm.trim() !== '') {
     let filteredTasks = originalFlags.filter(flag =>
@@ -37,8 +42,33 @@ useEffect(() => {
   }
 }, [searchTerm]);
 
+useEffect(() => {
+
+
+
+    if (darkMode) {
+
+      document.querySelector('body').querySelector("main").querySelector('input').style.backgroundColor = `hsl(209, 23%, 27%)`;
+      document.querySelector('body').querySelector("main").querySelector('.filter_region').style.backgroundColor = `hsl(209, 23%, 27%)`;
+      document.querySelector('body').querySelector("main").querySelector('.filter_region > span').style.color = `rgba(255,255,255,0.5)`;
+
+
+    } else{
+
+      document.querySelector('body').querySelector("main").querySelector('input').style.backgroundColor = `white`;
+      document.querySelector('body').querySelector("main").querySelector('.filter_region').style.backgroundColor = `white`;
+      document.querySelector('body').querySelector("main").querySelector('.filter_region > span').style.color = `unset`;
+
+
+    }
+
+}, [darkMode])
+
 const handleSearch = (e) => {
   setSearchTerm(e.target.value);
+
+  
+
 
 
 
@@ -115,7 +145,7 @@ const handleSearch = (e) => {
    
                   
 
-                  className={` 
+                  className={`search_bar
                           drop-shadow-xl
                           rounded-xl
                           
@@ -131,7 +161,6 @@ const handleSearch = (e) => {
                   onChange={handleSearch}
                   placeholder="Search for a country..."
 
-                  style={themeElements}
 
                   />
 
@@ -143,28 +172,64 @@ const handleSearch = (e) => {
                     <img src={LOUPE} alt="" srcset="" 
                         className={`w-[70%]` }
 
-                        style={themeText}
                     />
                   </span>
 
 
               </li>
 
+                  {/* filter per continent start  */}
 
-            <li className={`
-                                min-[1440px]:w-[19%] min-[1440px]:h-[45%] min-[1440px]:bg-red-400
-                                min-[1440px]:flex min-[1440px]:justify-end 
-            `}>
+              <li className={`
+                                  min-[1440px]:w-[19%] min-[1440px]:h-[40%] min-[1440px]:
+                                  min-[1440px]:flex min-[1440px]:justify-end 
+              `}>
+                
               
-            
+  
+                <div className={`filter_region hover:cursor-pointer
+                
+                                  min-[1440px]:h-full min-[1440px]:w-full 
+                                  min-[1440px]:min-[1440px]:rounded-2xl 
+                                  min-[1440px]:text-center min-[1440px]:flex min-[1440px]:items-center
+                                  min-[1440px]:justify-center bg-white
+
+                                  drop-shadow-xl
+                
+                `}
+                  onClick={() => console.log('hello you')}
+                >
+
+                  <span className={` flex min-[1440px]:gap-10
+                  
+                  
+                  
+                  
+                  `}>
+
+                    Filter by Region
+
+
+                    <img src={DOWNARROW} alt="" srcset="" className={`
+
+                                        min-[1440px]: min-[1440px]:w-[1rem] min-[1440px]:h-[1rem]
+                                        min-[1440px]:self-center
+                    
+                    `} />
+
+
+                  </span>
 
 
 
-            </li>
+                </div>
+  
+              </li>
+
+
+                    {/* filter per continent end  */}
+
             </ul>
-
-
-
 
 
         </div>

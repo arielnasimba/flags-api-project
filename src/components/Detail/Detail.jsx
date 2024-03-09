@@ -8,9 +8,6 @@ import {ThemeContext } from '../../FlagContext';
 export default function Detail() {
 
   const { theme, flagsGallery2, themeUser, themeElements, themeBtn, themeText, darkMode} = useContext(ThemeContext);
-  // console.log(theme);
-// console.log(flagsGallery2);
-    // const {flagsGallery} = useContext(FlagInfoContext);
 
     console.log(darkMode);
 
@@ -19,124 +16,49 @@ export default function Detail() {
   console.log(id);
 
   const flagId = flagsGallery2[id];
-  // console.log(flagId.name.nativeName );
-  // console.log(flagId.borders);
-
-
-// console.log( (Object.entries(Object.entries(flagId.name.nativeName).at(-1)).at(-1))[(Object.entries(Object.entries(flagId.name.nativeName).at(-1)).at(-1)).length-1].common );
-
-
-  // flagId.borders.map((border) => {
-
-  //   console.log(border);
-  // })
-
-  // Array.from(flagId.languages).map((lang) =>{
-  //   console.log(lang.languages);
-
-  // })
-
-  // Object.entries(flagId.languages).map( ( [key, val] = entry) =>{
-
-  //   return (
-
-      
-  //     <span >
-  //       &nbsp;&nbsp;
-  //       {val}
-  //     </span>
-  //   )
-  // })
-
-
-  
+-
+ 
   useEffect(() => {
-
-    // darkMode ? (console.log(`dark mode on`), 
-
-    //   document.querySelector("header").style = `none`
-    
-    
-    
-    
-    
-    
-    
-    
-    // ):(console.log(`dark mode off`), 
-    //   document.querySelector("header").style = themeElements);
 
     if (darkMode) {
 
-      document.querySelector("body").style.backgroundColor = "hsl(209, 23%, 22%)";
+      document.querySelector(".back_button").style.backgroundColor = `hsl(209, 23%, 27%)`;
+      document.querySelector("#backBtn").style.color = `white`;
 
 
-      // document.querySelector("header").style.backgroundColor = "hsl(209, 23%, 27%)";
-      document.querySelector("p").style.color = "white";
-      document.querySelector("h3").style.color = "white";
+      document.querySelector("h3").style.color = `white`;
 
-      // document.querySelector("button").style.backgroundColor = "hsl(209, 23%, 27%)";
-      // document.querySelector("button").style.color = "hsl(0, 0%, 100%)";
-      // document.querySelector("img").style.backgroundClip = "hsl(0, 0%, 100%)";
-
-
-      // document.querySelectorAll(" span").forEach( ( el ) => (
-      //   // el.style.backgroundColor ="transparent",
-      //   // el.style.color = `hsl(0, 0%, 100%)`
-        
-      //   ) )
-
-
-
-      // document.querySelectorAll("#cardFlag").style.backgroundColor= "hsl(209, 23%, 22%)";
+      document.querySelectorAll("p").forEach(( element) =>{
+        element.style.color = `white`;
+      })
+ 
+      document.querySelectorAll("span").forEach(( element) =>{
+        element.style.color = `white`;
+      })
 
 
       console.log(`dark mode on`);
     } else{
 
-      document.querySelector("body").style.backgroundColor = "hsl(0, 0%, 95%)";
+      document.querySelector(".back_button").style.backgroundColor = `unset`;
+      document.querySelector("#backBtn").style.color = `unset`;
 
-      document.querySelector("p").style.color = "unset";
-      document.querySelector("h3").style.color = "unset";
+      document.querySelector("h3").style.color = `unset`;
 
-
-
-
-      // document.querySelector("header").style = `none`
-      // document.querySelector("h1").style.color = "black";
-
-      // document.querySelector("button").style.backgroundColor = "";
-      // document.querySelector("button").style.color = "";
-      // document.querySelectorAll("#cardFlag").forEach( ( el ) => console.log(el) )
-
-      // document.querySelectorAll("#cardFlag").forEach( ( el ) => (
-      //   el.style.backgroundColor ="hsl(0, 0%, 95%)",
-      //   el.style.color = `unset`
-      //   ) )
-
-
-      // document.querySelector("#cardFlag").style.backgroundColor= "hsl(0, 0%, 100%)";
-
-
-
-
-
-      console.log(`dark mode off`);
+      
+      document.querySelectorAll("p").forEach(( element) =>{
+        element.style.color = `unset`;
+      })
+      
+      document.querySelectorAll("span").forEach(( element) =>{
+        element.style.color = `unset`;
+      })
+console.log(`dark mode off`);
 
     }
 
-    // backgroundColor:  "hsl(207, 26%, 17%)",
-    //     color: "hsl(0, 0%, 100%)",
-    
-
-
-    return () => {
-    }
   }, [darkMode])
   
-
-
-
 
 
   return (
@@ -158,11 +80,6 @@ export default function Detail() {
         
         `}
 
-        // style={themeUser}
-
-        
-        
-        
         >
 
           
@@ -195,7 +112,7 @@ export default function Detail() {
                 to={`/flags-api-project/`}
             >
 
-            <button type="button" className={`btn bg-transparent
+            <button type="button" className={`back_button btn 
             
             
                             w-full h-full
@@ -206,6 +123,7 @@ export default function Detail() {
                             
             `}
             
+
             
             >
 
@@ -229,8 +147,9 @@ export default function Detail() {
                 </span>
 
                 <p 
+
+                id='backBtn'
                 
-                // style={themeText}
                 >Back</p>
             </button>
             
