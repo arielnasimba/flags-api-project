@@ -15,6 +15,15 @@ export default function Home() {
   const { themeUser, themeInput, themeElements, themeText,flagsGallery2,setFlagsGallery2, darkMode} = useContext(ThemeContext);
 // console.log(darkMode);
 
+
+const [selectedRegion, setSelectedRegion] = useState('all');
+
+const handleRegionChange = (e) => {
+  setSelectedRegion(e);
+
+};
+
+
   const [searchTerm, setSearchTerm] = useState('');
 
 const handleFlag = (id) => {
@@ -42,7 +51,116 @@ useEffect(() => {
   }
 }, [searchTerm]);
 
+useEffect(() => {
+  if (selectedRegion.trim() == 'all') {
+    setFlagsGallery2(originalFlags)
+  } else {
+    const filteredFlags = originalFlags.filter(flag => flag.region.toLowerCase() === selectedRegion.toLowerCase());
+    setFlagsGallery2(filteredFlags);
+  }
+}, [selectedRegion, originalFlags]);
+
 const [filterDisplay, setFilterDisplay] = useState(false);
+
+// flagsGallery2.map((el) => {
+
+//   // console.log(el.region);
+// })
+
+// useEffect(() => {
+
+//   if (selectedRegion.trim() == 'all') {
+//     setFlagsGallery2(originalFlags)
+
+
+//   } else {
+
+//     flagsGallery2.map((el) => {
+
+//       console.log(el);
+//       // console.log(el.region);
+
+//       switch (el.region.toLowerCase()) {
+//         case 'africa':
+
+//         setFlagsGallery2(prevFlag =>({ ...el}))
+          
+//           break;
+//         case 'americas':
+
+//         setFlagsGallery2(prevFlag =>({ ...el}))
+          
+//           break;
+//         case 'asia':
+
+//         setFlagsGallery2(prevFlag =>({ ...el}))
+          
+//           break;
+//         case 'europe':
+
+//         setFlagsGallery2(prevFlag =>({ ...el}))
+          
+//           break;
+//         case 'oceania':
+
+//         setFlagsGallery2(prevFlag =>({ ...el}))
+          
+//           break;
+      
+//         default:
+
+//         setFlagsGallery2(originalFlags)
+//           break;
+//       }
+
+//     })
+
+
+//       let filteredRegion = originalFlags.filter(flag =>{
+
+//         console.log(flag.region);
+//         flag.region.toLowerCase().includes(selectedRegion.toLowerCase())
+//       }
+
+//       );
+//       setFlagsGallery2(filteredRegion);
+//   }
+
+  // switch (selectedRegion.trim()) {
+  //   case 'all':
+  //     let filteredRegion = originalFlags.filter(flag =>
+  //       flag.region.toLowerCase().includes(selectedRegion.toLowerCase())
+  //     );
+  //     setFlagsGallery2(filteredRegion);
+      
+  //     break;
+  //   case 'africa':
+      
+      
+  //     break;
+  //   case 'americas':
+      
+      
+  //     break;
+  //   case 'asia':
+      
+      
+  //     break;
+  //   case 'oceania':
+      
+      
+  //     break;
+  //   case 'europe':
+      
+      
+  //     break;
+  
+  //   default:
+  //     break;
+  // }
+  
+// }, [selectedRegion])
+
 
 useEffect(() => {
 
@@ -51,16 +169,28 @@ useEffect(() => {
 
     document.querySelector('body').querySelector("main").querySelector('.list_region_area').style.display =`flex`
 
+    // if (selectedRegion != '') {
+    //   let filterRegion = originalFlags.filter( flags =>
+        
+    //     flags.region.toLowerCase().includes(selectedRegion.toLocaleLowerCase())
 
-    console.log(`filter display flex`);
+    //     );
+    //   setFlagsGallery2(filterRegion)
+    // }
+
+
+    // console.log(`filter display flex`);
   } else{
-    console.log(`filter display hidden`);
+    // console.log(`filter display hidden`);
 
-    document.querySelector('body').querySelector("main").querySelector('.list_region_area').style.display =`none`
+    document.querySelector('body').querySelector("main").querySelector('.list_region_area').style.display =`none`;
+    // setFlagsGallery2(originalFlags)
 
   }
 
 }, [filterDisplay])
+
+console.log(selectedRegion);
 
 
 useEffect(() => {
@@ -243,6 +373,8 @@ const handleSearch = (e) => {
 
                                        min-[1440px]:hover:cursor-pointer
                   `}
+
+                  onClick={(e) => {handleRegionChange('all')}}
                   
                   >All</span>
                   
@@ -251,6 +383,8 @@ const handleSearch = (e) => {
 
                                        min-[1440px]:hover:cursor-pointer
                   `}
+
+                  onClick={(e) => {handleRegionChange('africa')}}
                   
                   >Africa</span>
                   
@@ -259,6 +393,8 @@ const handleSearch = (e) => {
 
                                        min-[1440px]:hover:cursor-pointer
                   `}
+
+                  onClick={(e) => {handleRegionChange('americas')}}
                   
                   >America</span>
                   
@@ -267,6 +403,8 @@ const handleSearch = (e) => {
 
                                        min-[1440px]:hover:cursor-pointer
                   `}
+
+                  onClick={(e) => {handleRegionChange('asia')}}
                   
                   >Asia</span>
                   
@@ -275,6 +413,8 @@ const handleSearch = (e) => {
 
                                        min-[1440px]:hover:cursor-pointer
                   `}
+                  onClick={(e) => {handleRegionChange('europe')}}
+
                   
                   >Europe</span>
                   
@@ -283,6 +423,8 @@ const handleSearch = (e) => {
 
                                        min-[1440px]:hover:cursor-pointer
                   `}
+
+                  onClick={(e) => {handleRegionChange('oceania')}}
                   
                   >Oceania</span>
                 </div>

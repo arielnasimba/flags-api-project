@@ -45,7 +45,7 @@ export default function CardFlag() {
                     <div key={originalIndex} id='cardFlag' className={` card_template hover:scale-110 hover:shadow-2xl  flex flex-col shadow-md rounded-3xl
     
                             
-                    min-[1440px]:w-[16.85rem] min-[1440px]:h-[22rem] min-[1440px]:
+                    min-[1440px]:w-[17rem] min-[1440px]:h-[22rem] min-[1440px]:
 
 
 `}
@@ -76,7 +76,7 @@ export default function CardFlag() {
 
 <div className={`
 
-                min-[1440px]: min-[1440px]:w-full min-[1440px]:h-[50%]
+                min-[1440px]: min-[1440px]:w-full min-[1440px]:h-[50%] 
 
                 min-[1440px]: min-[1440px]:flex justify-center items-center
 
@@ -85,7 +85,7 @@ export default function CardFlag() {
 
     <div className={`
 
-                            min-[1440px]: min-[1440px]:w-[88%] min-[1440px]:h-[72%]
+                            min-[1440px]: min-[1440px]:w-[88%] min-[1440px]:h-[78%]
 
                             min-[1440px]: min-[1440px]:flex min-[1440px]:flex-col
 
@@ -102,7 +102,8 @@ export default function CardFlag() {
 
             <h3 className={`
             
-                            min-[1440px]:text-[1.3rem] min-[1440px]:font-[700] 
+                            min-[1440px]:text-[1.2rem] min-[1440px]:font-[700]  min-[1440px]:leading-5 
+                            min-[1440px]:pt-2
             `}      
             
             
@@ -121,7 +122,7 @@ export default function CardFlag() {
         
                                             min-[1440px]:w-full min-[1440px]:h-[78%] min-[1440px]:
                                             min-[1440px]:flex min-[1440px]:flex-col min-[1440px]:justify-center 
-                                            min-[1440px]:gap-1
+                                            min-[1440px]:gap-1 min-[1440px]:pt-1
         
         `}>
 
